@@ -11,29 +11,57 @@
 <body>
     <div class="container">
         <h1 class="text-center">Lista de Atividades</h1>
-        <h1 class="text-center">Usuario: <%=nome%></h1>
+        <h3 class="text-center">Usuário: <%=nome%></h3>
         <div class="row">
             <div class="col-sm text-center">
-                <h3 class="text-center">Cadastrar</h3>
-                <form action="" method="POST" class="form-control">
-                    <input type="date" name="data" id="" class="form-control" placeholder="Data">
-                    <select name="tipo" id="" class="form-control">
+                <h3 class="text-center">Cadastrar </h3>
+                <form action="/atividades" method="post" class="form-control">
+                    <input type="hidden" name="id" value="<%=id%>">
+                    <input type="hidden" name="nome" value="<%=nome%>">
+                <div class="form-floating">
+                    <input type="date" name="data" id="floatingInput" class = 'form-control' placeholder="Data">
+                    <label for="floatingInput">Data de Entrega</label>
+                </div>
+                    <div class="class form-floating">
+                    <select name="tipo" id="floatingSelect" name="tipo" class="form-control">
                         <option value="0">Selecione...</option>
-                        <option value="1">AC</option>
-                        <option value="2">AT</option>
-                        <option value="3">REC</option>
+                        <option value="1">Ac</option>
+                        <option value="2">At</option>
+                        <option value="3">Rec</option>
                         <option value="4">Exame</option>
-                        <label for="floatingSelect">FieldTested</label>
                     </select>
+                    <label for="floatingSelect">Tipo de Atividade:</label>
+                 
+                </div>
+                <label for="" class="form-control">Como Entregar:</label>
                     <input type="radio" name="entrega" class="form-check-input" id="" value="tarefa">Tarefa no Teams
                     <input type="radio" name="entrega" class="form-check-input" id="" value="chat">Chat do Teams
                     <input type="radio" name="entrega" class="form-check-input" id="" value="email">Email
-                    <input type="radio" name="entrega" class="form-check-input" id="" value="formulario">Forms
-
-                    
+                    <input type="radio" name="entrega" class="form-check-input" id="" value="formulario">Forms<br>
+<label for="" class="form-control">Orientações:</label>
+<textarea name="orientação" id="" cols="30" rows="10" class="form-control"></textarea>
                     <input type="submit" value="Registro" class="btn btn-info">
                 </form>
-                <a href="/login"class="btn btn-info botao">Login</a>
+            
+            </div>
+            <div class="col-sm text-center">
+                <h3>Atividades Cadastradas</h3>
+                <div class="card">
+                    <div class="card-header">Data:</div>
+                    <div class="card-body">
+                        <div class="card-title">Tipo:</div>
+                        <div class="card-subtitle">Entrega:</div>
+                        <div class="card-text">Orientações:</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="input-group">
+                            <input type="button" value="Entregue" class="btn btn-success form-control">
+                            <input type="button" value="Alterar" class="btn btn-warning form-control">
+                            <input type="button" value="Excluir" class="btn btn-danger form-control">
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
